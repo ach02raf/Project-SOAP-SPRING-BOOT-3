@@ -16,15 +16,14 @@ public class ConsumingwebservicesApplication {
 	@Bean
 	CommandLineRunner lookup(ipClient ipclient) {
 		return args -> {
-			String ip = "102.104.0.0";
+			String ip = "104.101.127.255";
 			if (args.length > 0) {
 				ip = args[0];
 			}
 			ResolveIPResponse ipResponse = ipclient.getClientIp(ip);
 
-			System.out.println("yu:" + ipResponse.getResolveIPResult());
 			IPInformation information = ipResponse.getResolveIPResult();
-			System.err.println("contry name: " + information.getCountry());
+			System.err.println("contry name: " + information);
 
 		};
 	}
